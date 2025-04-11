@@ -59,7 +59,7 @@ public class ImageService implements IImageService{
                 imageDto.setImageId(savedImage.getId());
                 imageDto.setImageName(savedImage.getName());
                 imageDto.setDownloadUrl(savedImage.getDownloadUrl());
-                savedImageDto.add(imageDto)
+                savedImageDto.add(imageDto);
             } catch (IOException | SQLException e) {
                 throw new RuntimeException(e.getMessage());
             }
@@ -68,7 +68,7 @@ public class ImageService implements IImageService{
     }
 
     @Override
-    public void updateImage(MultipartFile file, Long imageId, Long productId) {
+    public void updateImage(MultipartFile file, Long imageId) {
         Image image = getImageById(imageId);
         try {
             image.setFileName(file.getOriginalFilename());
